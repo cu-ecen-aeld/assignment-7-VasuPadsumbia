@@ -2,3 +2,9 @@
 build/
 .vscode/
 *.log
+*.mod
+*.ko
+*.cmd
+*.mod.c
+*.order
+*.symvers

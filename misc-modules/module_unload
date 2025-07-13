@@ -1,6 +1,11 @@
 #!/bin/sh
 module=$1
 device=$1
+PATH_TO_MODULE=$2
+
+if [ -z PATH_TO_MODULE ]; then
+	PATH_TO_MODULE=.
+fi
 
 if [ $# -ne 1 ]; then
 	echo "Wrong number of arguments"

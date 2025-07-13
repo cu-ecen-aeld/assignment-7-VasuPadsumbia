@@ -4,6 +4,16 @@ module=$1
 device=$1
 # Support read/write for owner and group, read only for everyone using 644
 mode="664"
+# Default path to module is current directory
+# If a second argument is given, use that as the path to the module
+# If no second argument is given, use the current directory
+# This allows the script to be run from any directory
+# and still find the module file
+PATH_TO_MODULE=$2
+
+if [ -z PATH_TO_MODULE ]; then
+    PATH_TO_MODULE=.
+fi
 
 if [ $# -ne 1 ]; then
 	echo "Wrong number of arguments"
@@ -22,7 +32,7 @@ else
 fi
 
 echo "Load our module, exit on failure"
-insmod ./$module.ko $* || exit 1
+insmod ${PATH_TO_MODULE}/$module.ko $* || exit 1
 echo "Get the major number (allocated with allocate_chrdev_region) from /proc/devices"
 major=$(awk "\$2==\"$module\" {print \$1}" /proc/devices)
 if [ ! -z ${major} ]; then
