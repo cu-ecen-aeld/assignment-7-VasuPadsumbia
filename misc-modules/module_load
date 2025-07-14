@@ -15,7 +15,7 @@ if [ -z PATH_TO_MODULE ]; then
     PATH_TO_MODULE=.
 fi
 
-if [ $# -ne 1 ]; then
+if [ $# -ne 2 ]; then
 	echo "Wrong number of arguments"
 	echo "usage: $0 module_name path_to_file"
 	echo "Will create a corresponding device /dev/module_name associated with module_name.ko"
