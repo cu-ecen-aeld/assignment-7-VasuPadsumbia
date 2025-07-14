@@ -3,7 +3,7 @@
 module="scull"
 device="scull"
 mode="664"
-PATH_TO_MODULE=$2
+PATH_TO_MODULE=$1
 # Default path to module is current directory
 # If a second argument is given, use that as the path to the module
 # If no second argument is given, use the current directory
